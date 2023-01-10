@@ -21,7 +21,7 @@ public class MoneyTests
         //arrange
         var amount = 51.5m;
         var currency = Currency.EUR;
-        
+
         //act
         var result = Money.Create(amount, currency);
 
@@ -29,5 +29,4 @@ public class MoneyTests
         result.Amount.Should().Be(amount);
         result.Currency.Should().Be(currency);
     }
-    
 }

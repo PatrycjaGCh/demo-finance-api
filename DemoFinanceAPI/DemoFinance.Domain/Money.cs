@@ -31,7 +31,7 @@ public class Money : ValueObject
     }
 }
 
-public enum Currency
+public enum Currency // ISO 4217
 {
     PLN,
     USD,
