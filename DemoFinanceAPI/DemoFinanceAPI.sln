@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoFinance.Infrastructure"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoFinance.Application", "DemoFinance.Application\DemoFinance.Application.csproj", "{926D3729-3718-43B3-801A-A54D964D4487}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{8281E701-0AED-44E6-B192-8C292D0BB623}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoFinance.UnitTests", "DemoFinance.UnitTests\DemoFinance.UnitTests.csproj", "{8281E701-0AED-44E6-B192-8C292D0BB623}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

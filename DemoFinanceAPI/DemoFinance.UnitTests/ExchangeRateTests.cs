@@ -2,7 +2,7 @@ using DemoFinance.Domain;
 using DemoFinance.Domain.Exceptions;
 using FluentAssertions;
 
-namespace Tests;
+namespace DemoFinance.UnitTests;
 
 public class ExchangeRateTests
 {
@@ -30,5 +30,4 @@ public class ExchangeRateTests
 
         createExchangeRate.Should().Throw<DomainException>();
     }
-    
 }

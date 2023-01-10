@@ -23,6 +23,17 @@ public class Money : ValueObject
 
         return new Money(amount, currency);
     }
+
+    public Money Exchange(ExchangeRate exchangeRate)
+    {
+        if (exchangeRate.From != this.Currency)
+        {
+            throw new DomainException(
+                $"Money currency ({this.Currency}) and source currency from given exchange rate ({exchangeRate.From}) do not match.");
+        }
+
+        return new Money(this.Amount * exchangeRate.Value, exchangeRate.To);
+    }
     
     protected override IEnumerable<object> GetEqualityComponents()
     {
