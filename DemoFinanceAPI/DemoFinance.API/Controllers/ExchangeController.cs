@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using System.Globalization;
 using DemoFinance.Application;
 using DemoFinance.Domain;
 using MediatR;
@@ -15,11 +17,17 @@ namespace DemoFinance.API.Controllers
             => _mediator = mediator;
 
         // GET: api/exchange/PLN
-        [HttpGet("/PLN/{targetCurrency}/{amount}")]
-        
+        [HttpGet("/PLN")]
         public async Task<IActionResult> Exchange(Currency targetCurrency, decimal amount)
         {
-            return Ok(await _mediator.Send(new GetExchangedMoneyQuery(amount, Currency.PLN, targetCurrency)));
+            var exchangedMoney = await _mediator.Send(new GetExchangedMoneyQuery(amount, Currency.PLN, targetCurrency));
+
+            var cultureInfo = CultureInfo.GetCultures(CultureTypes.SpecificCultures)
+                .First(x => string.Equals((new RegionInfo(x.Name)).ISOCurrencySymbol, exchangedMoney.Currency.ToString().ToUpper()));
+            
+            return Ok(exchangedMoney.Amount.ToString("C", cultureInfo));
         }
+        
+        // general to do in app: exceptions handling, for example exceptions middleware
     }
 }
