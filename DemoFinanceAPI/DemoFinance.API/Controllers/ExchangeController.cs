@@ -23,9 +23,9 @@ namespace DemoFinance.API.Controllers
         {
             var exchangedMoney = await _mediator.Send(new GetExchangedMoneyQuery(amount, Currency.PLN, targetCurrency));
 
-            return Ok(exchangedMoney.Amount.GetWithCurrencyFormatted(exchangedMoney.Currency));
+            return Ok(exchangedMoney.Amount.GetWithFormattedCurrency(exchangedMoney.Currency));
         }
         
-        // general to do in app: exceptions handling, for example exceptions middleware
+        // todo in app: exceptions handling, for example exceptions middleware
     }
 }

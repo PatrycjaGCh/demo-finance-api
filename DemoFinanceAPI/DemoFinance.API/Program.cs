@@ -9,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddTransient<IExchangeRatesProvider, ExchangeRatesProvider>();
-builder.Services.AddTransient<IRequestHandler<GetExchangedMoneyQuery, MoneyDto>, GetExchangedMoneyQueryHandler>(); // to do: generic registration
+builder.Services.AddTransient<IRequestHandler<GetExchangedMoneyQuery, MoneyDto>, GetExchangedMoneyQueryHandler>(); 
+// todo: generic registration
 
 builder.Services.AddControllers()
                 .AddJsonOptions(opt=> { opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); });

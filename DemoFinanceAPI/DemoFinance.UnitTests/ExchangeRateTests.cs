@@ -24,7 +24,7 @@ public class ExchangeRateTests
     }
 
     [Fact]
-    public void Domain_Exception_Should_Be_Thrown_When_Given_Currencies_Are_Equal()
+    public void Domain_Exception_Should_Be_Thrown_When_Given_Currencies_Are_Same()
     {
         Action createExchangeRate = () => ExchangeRate.Create(Currency.EUR, Currency.EUR, 3.5m);
 

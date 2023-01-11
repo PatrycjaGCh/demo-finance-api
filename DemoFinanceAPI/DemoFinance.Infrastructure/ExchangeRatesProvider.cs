@@ -14,15 +14,15 @@ public class ExchangeRatesProvider : IExchangeRatesProvider
         }
         
         using HttpClient client = new();
-        client.BaseAddress = new Uri("http://api.nbp.pl/");
+        client.BaseAddress = new Uri("http://api.nbp.pl/"); // todo: < config
         var response = await client.GetAsync($"/api/exchangerates/rates/a/{to.ToString().ToLower()}/");
-        response.EnsureSuccessStatusCode(); // to do: codes handling
+        response.EnsureSuccessStatusCode(); // todo: codes handling
         var content = await response.Content.ReadAsStringAsync();
         
         var exchangeRate = JsonSerializer.Deserialize<ExchangeRateResponse>(content, new JsonSerializerOptions()
         {
             PropertyNameCaseInsensitive = true
-        }); // to do: checking content if exists
+        }); // todo: checking content if exists
 
         return ExchangeRate.Create(from, to, exchangeRate.Rates.First().Mid);
     }
