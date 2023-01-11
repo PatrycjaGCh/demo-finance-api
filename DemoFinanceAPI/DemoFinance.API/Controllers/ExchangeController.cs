@@ -22,6 +22,7 @@ namespace DemoFinance.API.Controllers
         {
             var exchangedMoney = await _mediator.Send(new GetExchangedMoneyQuery(amount, Currency.PLN, targetCurrency));
 
+            // to do: extract to method and write tests
             var cultureInfo = CultureInfo.GetCultures(CultureTypes.SpecificCultures)
                 .First(x => string.Equals((new RegionInfo(x.Name)).ISOCurrencySymbol, exchangedMoney.Currency.ToString().ToUpper()));
             
